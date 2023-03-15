@@ -9,5 +9,5 @@ public interface RoleService {
 
     List<Role> findAll();
 
-    public void saveRole(Role role);
+    void saveRole(Role role);
 }
