@@ -25,10 +25,6 @@ public class RoleServiceImpl implements RoleService {
     public List<Role> findAll() {
         return roleRepository.findAll();
     }
-    @Override
-    public boolean containsName(final String nameRole){
-        return findAll().stream().map(Role::getName).filter(nameRole::equals).findFirst().isPresent();
-    }
 
     @Override
     @Transactional

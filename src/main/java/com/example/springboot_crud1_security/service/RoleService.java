@@ -10,5 +10,4 @@ public interface RoleService {
     List<Role> findAll();
 
     public void saveRole(Role role);
-    public boolean containsName(final String nameRole);
 }

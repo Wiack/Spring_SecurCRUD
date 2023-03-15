@@ -36,22 +36,6 @@ public class Init implements CommandLineRunner {
         final String ADM="ROLE_ADMIN";
         final String USR="ROLE_USER";
 
-//
-//        rolist.add("ROLE_ADMIN");
-//        rolist.add("ROLE_USER");
-//
-//        for(String nameRole: rolist) {
-//            if(!roleService.containsName(nameRole)) {
-//                roleService.saveRole(new Role(nameRole));
-//            }
-//        }
-
-
-
-
-//        roleService.containsName()
-
-
         User admin = userService.getByEmail("admin@gmail.com");
         if (admin == null) {
             admin = new User(
