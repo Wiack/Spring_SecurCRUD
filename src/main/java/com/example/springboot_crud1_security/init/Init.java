@@ -1,4 +1,4 @@
-package com.example.springboot_crud1_security.Init;
+package com.example.springboot_crud1_security.init;
 
 import com.example.springboot_crud1_security.model.Role;
 import com.example.springboot_crud1_security.model.User;
