@@ -25,16 +25,12 @@ public class Init implements CommandLineRunner {
     public void run(String... args) {
         if (roleService.findByName("ROLE_ADMIN") == null) {
             roleService.saveRole(new Role("ROLE_ADMIN"));
-           // roleService.addRoleAtStartup(1L, "ROLE_ADMIN");
         }
 
         if (roleService.findByName("ROLE_USER") == null) {
             roleService.saveRole(new Role("ROLE_USER"));
         }
-    //    List<String> rolist = new ArrayList<>();
 
-        final String ADM="ROLE_ADMIN";
-        final String USR="ROLE_USER";
 
         User admin = userService.getByEmail("admin@gmail.com");
         if (admin == null) {
