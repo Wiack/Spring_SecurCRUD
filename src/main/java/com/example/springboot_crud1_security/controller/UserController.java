@@ -19,10 +19,9 @@ public class UserController {
         this.userService = userService;
     }
 
-
-    @GetMapping
-    public String getUserById(Model model, Principal principal) {
-        model.addAttribute("user", userService.getByEmail(principal.getName()));
+    @GetMapping("/{id}")
+    public String showUser(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("user", userService.getById(id));
         return "infoAboutUser";
     }
 

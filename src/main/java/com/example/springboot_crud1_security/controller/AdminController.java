@@ -46,12 +46,6 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-    @GetMapping("/showUser/{id}")
-    public String showUser(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("user", userService.getById(id));
-        return "infoAboutUser";
-    }
-
 
     @GetMapping("/editInfo/{id}")
     public String getEditingForm(@PathVariable("id") Long id, Model model) {
