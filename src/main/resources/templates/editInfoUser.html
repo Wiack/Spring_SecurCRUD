@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>EDIT USER</title>
+
+
+    <style>
+        #b {
+            margin-left: 34%;
+            width: 25%;
+            background: #d24dff;
+            padding: 20px;
+        }
+    </style>
+
+</head>
+<body>
+<div id="b">
+    <h2>USER DETAILS</h2>
+    <br>
+
+    <br>
+
+    <form th:method="POST" th:action="@{/admin/updeteInfo(id=${user.getId()})}" th:object="${user}">
+
+
+        <p>
+            <label for="first_name">First Name: </label>
+            <input type="text" th:field="${user.firstName}" id="first_name"/>
+        </p>
+        <p>
+            <label for="last_name">Last Name: </label>
+            <input type="text" th:field="${user.lastName}" id="last_name"/>
+        </p>
+        <p>
+            <label for="age">Age: </label>
+            <input type="text" th:field="${user.age}" id="age"/>
+        </p>
+        <p>
+            <label for="email">EMAIL: </label>
+            <input type="text" th:field="${user.email}" id="email"/>
+        </p>
+        <p>
+            <label for="password">PASSWORD: </label>
+            <input th:name="password" type="text"
+                   class="form-control" id="password"/>
+        </p>
+        <p>
+            <label for="roles"> Role </label>
+            <select type="text" class="custom-select" th:field="*{roles}" id="roles"
+                    multiple="multiple" size="2">
+                <option th:each="role : ${listRole}" th:value="${role.getId()}"
+                        th:text="${role.getShortName()}"></option>
+            </select>
+        </p>
+        <br>
+        <input type="submit" value="SAVE"/>
+    </form>
+    <input type="button" onclick="history.back();" value="CANCEL"/>
+
+</div>
+</body>
+</html>

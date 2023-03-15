@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>USER LIST</title>
+    <style>
+        #c {
+            margin-left: 34%;
+            width: 25%;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="c">
+    <h2>USER LIST</h2>
+    <br>
+
+    <table>
+
+        <tr th:align=center>
+
+            <td><b>FIRST NAME</b></td>
+            <td><b>LAST NAME</b></td>
+            <td><b>AGE</b></td>
+            <td><b>EMAIL</b></td>
+            <td><b>ROLE</b></td>
+            <td><b></b></td>
+
+            <td><b>OPTIONS</b></td>
+            <td><b></b></td>
+        </tr>
+
+        <th:block th:each="user : ${listUsers}">
+            <tr th:align=center>
+
+                <td th:text="${user.getFirstName()}"></td>
+                <td th:text="${user.getLastName()}"></td>
+                <td th:text="${user.getAge}"></td>
+                <td th:text="${user.getEmail()}"></td>
+                <td th:text="${user.toStringRole()}"></td>
+                <td>
+                    <form th:action="@{/admin/editInfo/{id}(id=${user.getId()})}">
+                        <input type="submit" value="UPDATE"/>
+                    </form>
+                </td>
+                <td>
+
+
+                    <form th:method="GET" th:action="@{/admin/deleteUser/{id}(id=${user.getId()})}">
+                        <input type="submit" value="DELETE"/>
+                    </form>
+
+                </td>
+                <td>
+                    <form th:action="@{/user}">
+                        <input type="submit" value="INFORMATION">
+                    </form>
+                </td>
+            </tr>
+        </th:block>
+
+    </table>
+    <br>
+    <form th:action="@{/admin/newUser}">
+        <input type="submit" value="ADD"/>
+    </form>
+    <form th:action="@{/}">
+        <input type="submit" value="LOGOUT"/>
+    </form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>USER</title>
+</head>
+<body>
+<h2>Information</h2>
+
+<th:block>
+    <table>
+        <tr>
+            <td><b>ID:</b></td>
+            <td th:text="${user.getId()}"></td>
+        </tr>
+        <tr>
+            <td><b>Имя:</b></td>
+            <td th:text="${user.getFirstName()}"></td>
+        </tr>
+        <tr>
+            <td><b>Фамилия:</b></td>
+            <td th:text="${user.getLastName()}"></td>
+        </tr>
+        <tr>
+            <td><b>Возраст:</b></td>
+            <td th:text="${user.getAge()}"></td>
+        </tr>
+    </table>
+</th:block>
+
+<br>
+<input type="button" onclick="history.back();" value="GO BACK"/>
+</body>
+</html>

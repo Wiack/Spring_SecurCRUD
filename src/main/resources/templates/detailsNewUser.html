@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NEW USER</title>
+    <style>
+        #a {
+            margin-left: 34%;
+            width: 25%;
+            background: #fc0;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="a">
+    <h2>USER DETAILS</h2>
+    <br>
+
+    <form th:method="POST" th:action="@{/admin}" th:object="${user}">
+        <p>
+            <label for="first_name">FIRST NAME: </label>
+            <input type="text" th:field="${user.firstName}" id="first_name"/>
+        </p>
+        <p>
+            <label for="last_name">LAST NAME: </label>
+            <input type="text" th:field="${user.lastName}" id="last_name"/>
+        </p>
+        <p>
+            <label for="age">AGE: </label>
+            <input type="text" th:field="${user.age}" id="age"/>
+        </p>
+        <p>
+            <label for="email">EMAIL: </label>
+            <input type="text" th:field="${user.email}" id="email"/>
+        </p>
+        <p>
+            <label for="password">PASSWORD: </label>
+            <input type="text" th:field="${user.password}" id="password"/>
+        </p>
+        <p>
+            <label for="roles"> Role </label>
+            <select type="text" class="custom-select" th:field="*{roles}" id="roles"
+                    multiple="multiple" size="2">
+                <option th:each="role : ${listRole}" th:value="${role.getId()}"
+                        th:text="${role.getShortName()}"></option>
+            </select>
+        </p>
+
+        <br>
+        <input type="submit" value="ADD"/>
+    </form>
+    <input type="button" onclick="history.back();" value="CANCEL"/>
+
+</div>
+</body>
+</html>
